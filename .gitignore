@@ -1,0 +1,36 @@
+# Entorno / Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secretos y config local
+.env
+.streamlit/secrets.toml
+
+# Datos: no se versionan, demasiado pesados / no son "código"
+data/raw/*
+data/interim/*
+data/processed/*
+data/external/*
+!data/**/.gitkeep
+
+# Modelos entrenados: igual, decide tú si quieres versionar los pequeños
+models/*
+!models/.gitkeep
+
+# Material de estudio/scaffolding personal — no forma parte del proyecto en sí
+WORKSHOP_GUIDE.md
