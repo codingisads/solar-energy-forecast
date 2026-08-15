@@ -1,10 +1,5 @@
-# Ve añadiendo aquí las librerías a medida que decidas que las necesitas.
-# Pista de categorías que probablemente necesitarás en algún momento (decide tú cuáles y cuándo):
-#   - manipulación de datos
-#   - gráficos estáticos / interactivos
-#   - modelado clásico de ML
-#   - modelado específico de series temporales (si decides ir por ahí)
-#   - dashboard interactivo
-#   - notebooks
-#
-# No copies una lista cerrada de otro proyecto: parte de justificar cada dependencia es el ejercicio.
+numpy==2.5.2
+pandas==3.0.5
+python-dateutil==2.9.0.post0
+six==1.17.0
+tzdata==2026.3
