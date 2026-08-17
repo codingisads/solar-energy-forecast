@@ -1,25 +1,18 @@
-"""
-Configuración central del proyecto: rutas y constantes compartidas entre notebooks y módulos.
-
-TODO: define aquí, como constantes, cosas como:
-  - las rutas a data/raw, data/interim, data/processed, models/ (usa pathlib, no strings sueltos)
-  - la zona horaria de referencia del proyecto (decidiste esto en la Fase 2 de la guía, ¿recuerdas?)
-  - la ubicación/latitud-longitud de referencia si trabajas con un punto concreto de Cataluña
-
-Pista: importar esto desde los notebooks en vez de repetir rutas hardcodeadas en cada uno te
-ahorrará dolores de cabeza el día que reorganices carpetas.
-"""
-
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RAW_DATA_DIR = PROJECT_ROOT / 'data' / 'raw'
+PROCESSED_DATA_DIR = PROJECT_ROOT / 'data' / 'processed'
 
 """
 File name constants
 """
 
-PVGIS_DATA_FILENAME = 'pvgis_timeseries_dataset_2005_2023.csv'
-COPERNICUS_DATA_FILENAME = 'copernicus_reanalysis-era5-single-levels-timeseries.csv'
+PVGIS_DATA_FILENAME = 'irradiance_pvgis_timeseries_dataset_2005_2023.csv'
+COPERNICUS_DATA_FILENAME = 'cloudiness_copernicus_reanalysis-era5-single-levels-timeseries.csv'
 
-# TODO: deriva el resto de rutas (RAW_DATA_DIR, PROCESSED_DATA_DIR, MODELS_DIR, ...) a partir de PROJECT_ROOT
+TIMEZONE_STR = 'Europe/Madrid'
+RANGE_MIN_DATE = '2006-01-01 00:00:00'
+RANGE_MAX_DATE = '2023-12-31 23:59:59'
+
+SECONDS_PER_HOUR = 3600.0
