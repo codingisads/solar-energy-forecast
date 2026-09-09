@@ -85,3 +85,25 @@ def paint_seasonal_profile(df, title, xlabel, ylabel, unit = DEFAULT_UNIT):
     ax.legend(loc='upper right')
     
     plt.show()
+
+
+def scatter_tcc_gbi_by_season(df, x_col, x_label, y_col, y_label, season):
+    _, ax = plt.subplots(figsize=(10, 5))
+
+    df = df[(df['H_sun'] > 0) & (df['season'] == season)]
+    
+    scatter = ax.scatter(df[x_col], df[y_col], alpha=0.5, c=df['H_sun'], cmap='plasma', s=10, vmin=0, vmax=80)
+    
+    ax.set_title(f'Scatter Plot of {x_label} vs {y_label} ({season})')
+    ax.set_xlabel(f'{x_label} ({x_col})')
+    ax.set_ylabel(f'{y_label} ({y_col})')
+    ax.grid(True, linestyle='--')
+    
+    ax.spines[['right', 'top']].set_visible(False)    
+    
+    cbar = plt.colorbar(scatter, ax=ax)
+    cbar.set_label('H_sun')
+    
+    plt.show()
+
+
