@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from statsmodels.graphics.tsaplots import plot_acf
 
 from src.config import DEFAULT_UNIT
 
@@ -107,3 +108,16 @@ def scatter_tcc_gbi_by_season(df, x_col, x_label, y_col, y_label, season):
     plt.show()
 
 
+def plot_autocorrelation(df, value_col, lags=48):
+
+    autocorr = df[value_col].autocorr(lag=24)
+    print(f"Yesterday's autocorrelation: {autocorr:.3f}")
+
+    _, ax = plt.subplots(figsize=(10, 5))
+    plot_acf(df[value_col], lags=lags, alpha=0.05, ax=ax)
+    ax.set_title(f'Autocorrelation of {value_col}')
+    ax.set_xlabel('Lags')
+    ax.set_ylabel('Autocorrelation')
+    ax.spines[['right', 'top']].set_visible(False)    
+    ax.grid(True, linestyle='--')
+    plt.show()
