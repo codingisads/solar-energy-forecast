@@ -1,6 +1,13 @@
 import pandas as pd
 
 
+def load_indexed_data(filepath):
+    processed_data = pd.read_csv(filepath, sep=',', encoding='utf-8')
+    processed_data['time'] = pd.to_datetime(processed_data['time'], errors='coerce', utc=True)
+    processed_data.set_index('time', inplace=True)
+    processed_data.index = processed_data.index.tz_convert('Europe/Madrid')
+    return processed_data
+
 def load_raw_irradiance_data(filepath):
 
     raw_data = pd.read_csv(filepath, sep=',', encoding='utf-8', parse_dates=['time'], date_format='%Y%m%d:%H%M', skiprows=10, skipfooter=12, engine='python')
